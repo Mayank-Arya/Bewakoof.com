@@ -18,17 +18,17 @@
         }
         #navbar{
             width: 100%;
-            height: 90px;
+            height: 160px;
             border: 0px solid black;
             position: fixed;
         }
         #upperdiv{
-            height: 30%;
+            height: 15%;
             border: 1px solid gray;
             display: flex;
-            /* gap: 150px; */
+            gap: 155px;
             align-items: center;
-            padding-left: 2%;
+            padding-left: 3%;
             justify-content: space-between;
             padding-right: 2%;
             background-color: rgb(225, 218, 218);
@@ -44,12 +44,24 @@
             gap: 15px;
         }
         #lowerdiv{
-            height: 70%;
+            height: 40%;
             border: 1px solid gray;
             border-top: 0px;
             display: flex;
             gap: 50px;
             background-color: white;
+        }
+        #bottomdiv{
+          height: 30%;
+          border: 1px solid black;
+          border-top: 0px;
+          border-bottom: 0px;
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          font-size: 20px;
+          text-align: center;
+          background-color: white;
         }
         #logo{
             width: auto;
@@ -74,7 +86,7 @@
         }
           #searchbar{
             height: 100%;
-            margin-left: 15%;
+            margin-left: 10%;
             align-items: center;
           }
           #searchbar>input{
@@ -114,9 +126,48 @@
             text-align: center;
             /* justify-content: center; */
           }
+
           #middlediv{
-              height: 500px;
-              background-color: black;
+            height: 900px;
+            width: 100%;
+            margin-top: 13%;
+            background-color: white;
+          }
+
+          #slider{
+            height: 400px;
+            border: 1px solid black;
+          }
+          #ad_one{
+            width: 100%;
+          }
+          #ad_one img{
+            width: 100%;
+          }
+
+          #eightdiv{
+            width: 100%;
+            height: 230px;
+            border: 1px solid black;
+            display: flex;
+            gap: 10px;
+            justify-content: space-evenly;
+            align-items: center
+          }
+        
+          #eightdiv>div{
+            height:80%;
+            width: 9%;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 12px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+          }
+          #eightdiv>div>img {
+            width: 100%;
+            height: 70%;
+
           }
     </style>
 </head>
@@ -157,11 +208,55 @@
            </div>
         </div>
        </div>
-       <!-- ********************************SLIDER******************************************* -->
+       <div id="bottomdiv">
+            <p>MEN</p>
+            <p>WOMEN</p>
+            <p>ACCESSORIES</p>
+            <p>TEEN</p>
+       </div>
      </div>
-    </div>
-    <div id="middlediv">
-        
     </div> 
+
+    <div id="middlediv">
+      <div id="slider">
+      </div>
+      <div id="ad_one" style="margin-top: 1%;">
+       <img src="./photos/yellowimg.webp" alt="">
+      </div>
+      <div id="eightdiv">
+        <div>
+          <img src="./photos/newarrival.webp" alt="">
+          <p>New Arrivals</p>
+        </div>
+        <div>
+          <img src="./photos/bestseller.webp" alt="">
+          <p>BestSeller</p>
+        </div>
+        <div>
+          <img src="./photos/official.webp" alt="">
+          <p>Official Collaborations</p>
+        </div>
+        <div>
+          <img src="./photos/vote.jpg" alt="">
+          <p>Vote for Designs</p>
+        </div>
+        <div>
+          <img src="./photos/lastsize.webp" alt="">
+          <p>Last Sizes Left</p>
+        </div>
+        <div>
+          <img src="./photos/plussize.webp" alt="">
+          <p>Plus Size</p>
+        </div>
+        <div>
+          <img src="./photos/hotdeals.webp" alt="">
+          <p>Hot Deals</p>
+        </div>
+        <div>
+          <img src="./photos/customize.jpg" alt="">
+          <p>Customization</p>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
