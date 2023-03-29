@@ -11,7 +11,7 @@
             margin: 0%;
         }
         #parent{
-            height: 1000px;
+            height: auto;
             width: 100%;
             border: 1px solid black;
             
@@ -26,9 +26,9 @@
             height: 30%;
             border: 1px solid gray;
             display: flex;
-            gap: 155px;
+            /* gap: 150px; */
             align-items: center;
-            padding-left: 3%;
+            padding-left: 2%;
             justify-content: space-between;
             padding-right: 2%;
             background-color: rgb(225, 218, 218);
@@ -114,91 +114,10 @@
             text-align: center;
             /* justify-content: center; */
           }
-
-
-          /* ***********************************SLIDER************************************************** */
-            
-          * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-.slider {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.slides {
-  margin-top: 40%;
-  display: flex;
-  justify-content: center; /* add this line */
-  width: 300%;
-  animation: slide 10s infinite;
-  transition: transform 0.5s ease;
-}
-
-.slides img {
-  width: 33.33333%;
-  transform: translateX(-10%);
-  transition: transform 0.5s ease;
-}
-
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  color: white;
-  background: black;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.prev {
-  left: 0;
-}
-
-.next {
-  right: 0;
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(-25%);
-  }
-  40% {
-    transform: translateX(-50%);
-  }
-  60% {
-    transform: translateX(-75%);
-  }
-  80% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(-125%);
-  }
-}
-
-.slider:hover .slides {
-  animation-play-state: paused;
-}
-
-.slider:hover .slides img {
-  transform: translateX(-5%);
-}
-
+          #middlediv{
+              height: 500px;
+              background-color: black;
+          }
     </style>
 </head>
 <body>
@@ -240,41 +159,9 @@ body {
        </div>
        <!-- ********************************SLIDER******************************************* -->
      </div>
-      
+    </div>
+    <div id="middlediv">
+        
     </div> 
 </body>
 </html>
-
-<script>
- let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-  let i;
-  const slides = document.querySelectorAll(".slide");
-  const dots = document.querySelectorAll(".dot");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].classList.add("active");
-}
-
-</script>
