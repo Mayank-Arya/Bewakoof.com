@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
     name: String,
-    age: Number,
     email: {
       type: String,
       unique: true
@@ -11,11 +10,11 @@ const userSchema = mongoose.Schema({
       type: String,
       minLength: 8
     },
-    location: String,
+    location:String,
     gender: String,
-    phoneNumber: {
-      type: Number,
-      minimum: 1000000000,
-      maximum: 9999999999
-    }
+    age: Number,
   })
+
+const userModel = mongoose.model('user',userSchema)
+
+module.exports = {userModel}

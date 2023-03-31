@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Page</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+        #parent{
+            height: auto;
+            width: 100%;
+            border: 1px solid black;
+            
+        }
+        #navbar{
+            width: 100%;
+            height: 160px;
+            border: 0px solid black;
+            position: fixed;
+        }
+        #upperdiv{
+            height: 15%;
+            border: 1px solid gray;
+            display: flex;
+            gap: 155px;
+            align-items: center;
+            padding-left: 3%;
+            justify-content: space-between;
+            padding-right: 2%;
+            background-color: rgb(225, 218, 218);
+        }
+        #upperdiv>div>p{
+            font-weight: 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #upperdiv>div{
+            width: auto;
+            height: auto;
+            display: flex;
+            gap: 15px;
+        }
+        #lowerdiv{
+            height: 40%;
+            border: 1px solid gray;
+            border-top: 0px;
+            display: flex;
+            gap: 50px;
+            background-color: white;
+        }
+        #bottomdiv{
+          height: 30%;
+          border: 1px solid black;
+          border-top: 0px;
+          border-bottom: 0px;
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          font-size: 20px;
+          text-align: center;
+          background-color: white;
+        }
+        #logo{
+            width: auto;
+            height: auto;
+            align-items: center;
+        }
+        #logo>img{
+            height: 95%;
+            width: 200px;
+            margin-top: 2px;
+        }
+        #items{
+            height: auto;
+            width: auto;
+            border: 0px solid black;
+            display: flex;
+            gap: 30px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            align-items: center;
+        }
+          #searchbar{
+            height: 100%;
+            margin-left: 10%;
+            align-items: center;
+          }
+          #searchbar>input{
+            height: 40px;
+            width: 280px;
+            margin-top: 4%;
+            background-color: rgb(255, 236, 236);
+            color: rgb(223, 196, 196);
+            border: 0px solid gray;
+            border-radius: 5px;
+            border: 0px;
+            color: rgb(83, 83, 83);
+          }
+          #rightdiv{
+            height: auto;
+            width: auto;
+            border: 0px solid black;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+          }
+          #rightdiv>img{
+            width: 30px;
+            height: 50%;
+          }
+          #rightdiv>p{
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+          }
+          #profile{
+            height: 30px;
+            width: 120px;
+            border: 1px solid black;
+            border-radius: 10px;
+            align-items: center;
+            text-align: center;
+            /* justify-content: center; */
+          }
+
+          #middlediv{
+            width: 100%;
+            height: 600px;
+            border: 0px solid black;
+            margin-top: 8%;
+            display: flex;
+          }
+          #middlediv div{
+            width: 50%;
+            height: auto;
+            border: 0px solid red;
+          }
+          #middlediv div h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-left: 6%;
+          
+            /* font-weight: lighter; */
+          }
+          #leftmid{
+            background-image: url('./photos/gradient.jpg');
+        }
+        #leftmid h1{
+            font-size: 40px;
+            margin-top: 5%;
+        }
+        #rightmid h1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          text-align: center;
+          font-size: 25px;
+          margin-top: 1%;
+          color: rgb(42, 40, 40);
+        }
+        #rightmid p{
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(168, 163, 163);
+            /* font-weight: bold; */
+        }
+
+        #registerdiv{
+            width: 80%;
+            height: 90px;
+            margin: auto;
+            border: 1px solid black;
+            /* background-color: blue; */
+        }
+        /* #registerdiv input{
+            width: 100px;
+            height: 30px;
+            border: 0px;
+        } */
+
+#registerdiv{
+  position: relative;
+  margin: auto;
+  /* margin: 40px; */
+  font-size: 18px;
+}
+
+#registerdiv input {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  font-size: 13px;
+  padding: 5px 0;
+  width: 100%;
+}
+
+
+
+#registerdiv input:focus,
+#registerdiv input:valid {
+  border-bottom: 1px solid #5b5b5b;
+}
+
+
+
+select#gender {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+select#gender option[value="default"] {
+  display: none;
+}
+
+select#gender::-ms-expand {
+  display: none;
+}
+
+select#gender option:checked {
+  background-color: #333;
+  color: #fff;
+}
+
+button#signup {
+  font-family: Arial, sans-serif;
+  width: 300px;
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+button#signup:hover {
+  background-color: #ccc;
+}
+
+button#signup:focus {
+  outline: none;
+}
+
+button#signup:active {
+  background-color: #666;
+  color: #fff;
+}
+
+#loginpg{
+  font-size: 10px;
+}
+    </style>
+
+</head>
+<body>
+    <div id="parent">
+        <div id="navbar">
+          <div id="upperdiv">
+          <div>
+           <p>Offers</p>
+           <p>Fanbook</p>
+           <p>Download App</p>
+           <p>TriBe Membership</p>
+          </div>
+          <div>
+           <p>Contact Us</p>
+           <p>Track Order</p>
+          </div>
+          </div>
+          <div id="lowerdiv">
+           <div id="logo">
+               <img src="./photos/Fashion (2).png" alt="logo">
+           </div>
+           <div id="items">
+               <p>MEN</p>
+               <p>WOMEN</p>
+               <p>MOBILE COVERS</p>
+           </div>
+           <div id="searchbar">
+            <input type="text" id="search" placeholder="Search By Product,category or collection">
+           </div>
+           <div id="rightdiv">
+               <div style="border: 1px solid gray; height: 50%;"></div>
+              <img src="./photos/love.png" alt="loveitem">
+              <img src="./photos/cart.png" alt="cart">
+              <div id="profile">
+                <p>UserName</p>
+              </div>
+           </div>
+          </div>
+        </div>
+          <div id="middlediv">
+              <div id="leftmid">
+                <h1>Welcome to the world of <br> Bewakoof !</h1> <br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                <img src="./photos/loginimg.webp" alt="loginimage">
+              </div>
+              <div id="rightmid">
+                <h1>SignUp/Login</h1> <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                <p>for Latest trends, exciting offers and everything Bewakoof®!</p><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                <div id="registerdiv">
+                    <input type="text" class="registerinp" name="" id="name" placeholder="Enter your name"> <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    <input type="email" class="registerinp" id="email" placeholder="Enter your email address"> <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    <input type="password" class="registerinp" id="pass" placeholder="Create a strong password"> <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    <input type="text" class="registerinp" id="location" placeholder="Your location"> <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    <input type="number" name="" id="age" placeholder="Your age"> <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    <select name="" class="registerinp" id="gender">
+                        <option value="">Gender</option>
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select> <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    <button id="signup">Sign Up</button><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    <p style="font-size: 14px;">Already registered? <a href="./login.html">Login!</a></p>
+                </div>
+              </div>
+          </div>
+        
+       </div> 
+       
+</body>
+</html>
+
+
+<script>
+    
+    let signupbtn = document.getElementById("signup")
+
+    let name = document.getElementById("name")
+    let email = document.getElementById("email")
+    let password = document.getElementById("pass")
+    let age = document.getElementById("age")
+    let gender = document.getElementById("gender")
+    let address = document.getElementById("location")
+
+    
+    signupbtn.addEventListener("click",()=>{
+        let payload = {
+            name:name.value,
+            email:email.value,
+            password:password.value,
+            location:address.value,
+            age:age.value,
+            gender:gender.value
+        }
+        if(payload.name && payload.email && payload.password && payload.location && payload.age && payload.gender){
+          fetch("http://localhost:9090/users/register",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(payload)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            setTimeout(() => {
+              window.location.href = "./login.html"
+            }, 2000);
+        })
+        }else{
+          alert("Please fill all the fields")
+        }
+
+        
+    })
+    
+</script>

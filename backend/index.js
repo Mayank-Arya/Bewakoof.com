@@ -1,13 +1,19 @@
 const express = require('express')
-
+const {connection} = require('./db')
+const {userRouter} = require('./routes/user.routes') 
+const {auth} = require("./middlewares/auth.middleware")
+const cors = require("cors")
 const app = express()
 app.use(express.json())
 
-app.get('/',(req,res)=>{
-    res.send("HOME PAGE")
+app.use(cors())
+app.use("/users",userRouter)
+// auth middlewares
+app.use(auth)
+
+app.listen(process.env.port,async ()=>{
+    await connection
+    console.log('server is running at port',process.env.port)
 })
 
-
-app.listen(9090,()=>{
-    console.log("This Server Is Running At Port 9090")
-})
+// 
