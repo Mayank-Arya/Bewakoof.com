@@ -345,8 +345,6 @@ button#signup:active {
 
 
 <script>
-    
-    let signupbtn = document.getElementById("signup")
 
     let name = document.getElementById("name")
     let email = document.getElementById("email")
@@ -355,7 +353,7 @@ button#signup:active {
     let gender = document.getElementById("gender")
     let address = document.getElementById("location")
 
-    
+    let username = localStorage.getItem("username")
     signupbtn.addEventListener("click",()=>{
         let payload = {
             name:name.value,

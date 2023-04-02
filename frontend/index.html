@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME PAGE</title>
     <style>
-        *{
+       *{
             padding: 0%;
             margin: 0%;
         }
@@ -148,8 +148,8 @@
 
           #eightdiv{
             width: 100%;
-            height: 230px;
-            border: 1px solid black;
+            height: 250px;
+            border: 0px solid black;
             display: flex;
             gap: 10px;
             justify-content: space-evenly;
@@ -157,17 +157,19 @@
           }
         
           #eightdiv>div{
-            height:80%;
-            width: 9%;
+            height:auto;
+            width: 12%;
             border: 0px solid black;
             text-align: center;
+            border-radius: 10px;
             font-size: 12px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: bold;
           }
           #eightdiv>div>img {
-            width: 100%;
-            height: 70%;
+            width: 120%;
+            border-radius: 10px;
+            height: 120%;
 
           }
           #profile{
@@ -175,62 +177,320 @@
             background-color: white;
           }
 
-
-
-
           /* ****************************************************** */
-          
-    </style>
+          #shadow{
+            background-color: rgb(36, 35, 35);
+            color: rgb(165, 162, 162);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+
+          #shadow>div>h3,p{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          }
+
+          .footer_main{
+            margin-top: 5%;
+          }
+
+          #carees{
+            background-color: rgb(36, 35, 35);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: rgb(165, 162, 162);
+          }
+       
+          #downloads{
+            background-color: rgb(36, 35, 35);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+          }
+          /* #downloads>h1,p{
+            margin-left: 80px;
+          }  */
+          #footer_imgs{
+            height: auto;
+            width: 10%;
+            display: flex;
+             margin: auto; 
+             padding: 2%;
+          } 
+          #footer_imgs>div>img{
+            height: 40px;
+            width: 140px;
+            border-radius: 10px;
+            border: 1px solid white;
+          }
+
+          #trend_category{ 
+            
+            width: auto;
+            height: auto;
+            margin-top: 0%;
+            border: 0px solid blueviolet;
+            display: flex;
+            gap: 0px;
+            margin: auto;
+          }
+
+          #trend_category>div{
+            width: 50%;
+            height: auto;
+
+          }
+          #trend_category>div>img{
+            height: auto;
+            width: 100%;
+          }
+           
+          #tre_cat{
+            margin-top: 1%;
+            font-size: 35px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: lighter;
+            margin-left: 550px;
+            
+          }
+          #tre_cat>p{
+            margin-left: -14%;
+          }
+          #insideTrend{
+            width: 98%;
+            height: auto;
+            border: 0px solid black;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            gap: 10px 10px;
+            margin-top: 2%;
+            justify-content: space-around;
+          }
+          #insideTrend>div{
+            border: 0px solid black;
+            height: auto;
+          }
+          #insideTrend>div>img{
+            width: 100%;
+          }
+
+          #TooHot{
+            width: 100%;
+            height: auto;
+            border: 0px solid black;
+            text-align: center;
+            font-size: 30px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+          }
+          #TooHot>div{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 10px 10px;
+          }
+          #TooHot>div>div>img{
+            width: 100%;
+            height: auto;
+          }
+
+          #tobag{
+            width: 100%;
+            height: auto;
+            border: 0px solid black;
+            text-align: center;
+            font-size: 30px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+            margin-top: 2%;
+          }
+          #tobag>div{
+            width: 100%;
+            height: auto;
+            display: flex;
+            gap: 5px;
+          }
+          #tobag>div>div>img{
+            width: 100%;
+          }
+
+          #threeimg{
+            width: 100%;
+            height: auto;
+            display: flex;
+            gap: 5px;
+          }
+          #threeimg>div{
+            width:32%;
+            margin: auto;
+
+          }
+          #threeimg>div>img{
+            width: 100%;
+            
+          }
+
+          /* ***********************************  DROPDOWN FOR PROFILE   *******************************************/
+          #dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 0;
+  margin: 0;
+}
+
+#dropdown-menu li {
+  display: block;
+  padding: 12px 16px;
+}
+
+#dropdown-menu li:hover {
+  background-color: #f1f1f1;
+}
+
+#profile:hover #dropdown-menu {
+  display: block;
+}
+
+
+
+/* ****************************************************************************************** */
+
+
+
+
+#eightdiv>div {
+    /* position: relative; */
+    overflow: hidden;
+  }
+  
+  #eightdiv>div img {
+    transition: transform 0.5s ease-out;
+    max-width: 100%;
+  }
+  
+  #eightdiv>div:hover img {
+    transform: scale(1.1);
+  }
+  
+  #eightdiv>div::after {
+    content: "";
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: opacity 0.5s ease-out;
+  }
+  
+  #eightdiv>div:hover::after {
+    opacity: 1;
+    transition-delay: 1.02s;
+  }
+  
+
+  /* *************************************************************************************** */
+
+
+
+  
+#insideTrend>div {
+    /* position: relative; */
+    overflow: hidden;
+  }
+  
+  #insideTrend>div img {
+    transition: transform 0.5s ease-out;
+    max-width: 100%;
+  }
+  
+  #insideTrend>div:hover img {
+    transform: scale(1.1);
+  }
+  
+  #insideTrend>div::after {
+    content: "";
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: opacity 0.5s ease-out;
+  }
+  
+  #insideTrend>div:hover::after {
+    opacity: 1;
+    transition-delay: 1.02s;
+  }
+  
+
+
+</style>
 </head>
 <body>
-    <div id="parent">
-     <div id="navbar">
-       <div id="upperdiv">
-       <div>
-        <p>Offers</p>
-        <p>Fanbook</p>
-        <p>Download App</p>
-        <p>TriBe Membership</p>
-       </div>
-       <div>
-        <p>Contact Us</p>
-        <p>Track Order</p>
-       </div>
-       </div>
-       <div id="lowerdiv">
-        <div id="logo">
-            <img src="./photos/Fashion (2).png" alt="logo">
-        </div>
-        <div id="items">
-            <p>MEN</p>
-            <p>WOMEN</p>
-            <p>MOBILE COVERS</p>
-        </div>
-        <div id="searchbar">
-         <input type="text" id="search" placeholder="Search By Product,category or collection">
-        </div>
-        <div id="rightdiv">
-            <div style="border: 1px solid gray; height: 50%;"></div>
-           <p>Login</p>
-           <img src="./photos/love.png" alt="loveitem">
-           <img src="./photos/cart.png" alt="cart">
-           <div id="profile" ">
-             <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Profile</p>
-           </div>
-        </div>
-       </div>
-       <div id="bottomdiv">
-            <p>MEN</p>
-            <p>WOMEN</p>
-            <p>ACCESSORIES</p>
-            <p>TEEN</p>
-       </div>
-     </div>
-    </div> 
-
-    <div id="middlediv">
-      <div id="slider">
+  <div id="parent">
+    <div id="navbar">
+      <div id="upperdiv">
+      <div>
+       <p>Offers</p>
+       <p>Fanbook</p>
+       <p>Download App</p>
+       <p>TriBe Membership</p>
       </div>
+      <div>
+       <p>Contact Us</p>
+       <p>Track Order</p>
+      </div>
+      </div>
+      <div id="lowerdiv">
+       <div id="logo">
+           <img src="./photos/Fashion (2).png" alt="logo">
+       </div>
+       <div id="items">
+           <p>MEN</p>
+           <p>WOMEN</p>
+           <p>MOBILE COVERS</p>
+       </div>
+       <div id="searchbar">
+        <input type="text" id="search" placeholder="Search By Product,category or collection">
+       </div>
+       <div id="rightdiv">
+           <div style="border: 1px solid gray; height: 50%;"></div>
+          <p>Login</p>
+          <img src="./photos/love.png" alt="loveitem">
+          <img src="./photos/cart.png" alt="cart">
+          <div id="profile"  style="border: 2px solid black; color: black;">
+            <!-- <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PROFILE</p> -->
+            <button>My Account</button>
+  <ul id="dropdown-menu">
+    <li><a href="#">Username</a></li>
+    <li><a href="#">My Account</a></li>
+    <li><a href="#">My Wallet</a></li>
+    <li><a href="#">My Orders</a></li>
+    <li><a href="#">Logout</a></li>
+  </ul>
+          </div>
+       </div>
+      </div>
+      <div id="bottomdiv">
+           <p>MEN</p>
+           <p>WOMEN</p>
+           <p>ACCESSORIES</p>
+           <p>TEEN</p>
+      </div>
+    </div>
+   </div> 
+    <div id="middlediv">
+        <div id="threeimg">
+    <div>
+      <img src="./photos/img3.webp" alt="">
+    </div>
+    <div>
+      <img src="./photos/img2.webp" alt="">
+    </div>
+    <div>
+      <img src="./photos/img5.webp" alt="">
+    </div>
+  </div>
       <div id="ad_one" style="margin-top: 1%;">
        <img src="./photos/yellowimg.webp" alt="">
       </div>
@@ -268,16 +528,111 @@
           <p>Customization</p>
         </div>
       </div>
+      <p style="padding-top: 4%; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; margin-left: 40%; font-size: 35px;">DESIGNS OF THE WEEK</>
     </div>
+    <div id="trend_category">
+     <div>
+      <img src="./photos/leftman.webp" alt="">
+     </div>
+     <div>
+      <img src="./photos/rightwomen.webp" alt="">
+     </div>
+   
+    </div>
+    <div id="tre_cat">
+    <p >TRENDING CATEGORIES</p>
+  </div>
+  <div id="TrendingItem">
+    <div id="insideTrend">
+       <div>
+        <img src="./photos/T1.webp" alt="">
+       </div><div>
+        <img src="./photos/T2.webp" alt="">
+       </div><div>
+        <img src="./photos/T3.webp" alt="">
+       </div><div>
+        <img src="./photos/T4.jpg" alt="">
+       </div><div>
+        <img src="./photos/T5.webp" alt="">
+       </div><div>
+        <img src="./photos/T6.webp" alt="">
+       </div><div>
+        <img src="./photos/T7.jpg" alt="">
+       </div><div>
+        <img src="./photos/T8.webp" alt="">
+       </div><div>
+        <img src="./photos/T9.jpg" alt="">
+       </div><div>
+        <img src="./photos/T10.webp" alt="">
+       </div><div>
+        <img src="./photos/T11.webp" alt="">
+       </div><div>
+        <img src="./photos/T12.webp" alt="">
+       </div>
+    </div>
+  </div>
+  <div id="TooHot">
+   <p>TOO HOT TO BE MISSED</p>
+   <div>
+    <div>
+      <img src="./photos/H1.webp" alt="">
+    </div>
+    <div>
+      <img src="./photos/H2.webp" alt="">
+    </div>
+    <div>
+      <img src="./photos/H3.jpg" alt="">
+    </div>
+    <div>
+      <img src="./photos/H4.webp" alt="">
+    </div>
+   </div>
+  </div>
+
+  <div id="tobag">
+    <p>CATEGORIES TO BAG</p>
+    <div>
+      <div>
+        <img src="./photos/C1.webp" alt="">
+      </div>
+      <div>
+        <img src="./photos/C2.webp" alt="">
+      </div><div>
+        <img src="./photos/C3.jpg" alt="">
+      </div><div>
+        <img src="./photos/c5.jpg" alt="">
+      </div><div>
+        <img src="./photos/c6.webp" alt="">
+      </div><div>
+        <img src="./photos/c7.webp" alt="">
+      </div>
+    </div>
+  </div>
+   
+  <div id="threeimg">
+    <div>
+      <img src="./photos/img3.webp" alt="">
+    </div>
+    <div>
+      <img src="./photos/img2.webp" alt="">
+    </div>
+    <div>
+      <img src="./photos/img5.webp" alt="">
+    </div>
+  </div>
 </body>
 
 
 <footer>
   <div class="footer_main">
     <div id="downloads">
-      <h1>Shop Non-Stop on Meesho</h1>
-      <p>Trusted by more than 1 Crore Indians </p>
-      <p>Cash on Delivery | Free Delivery </p>
+      <h1 style="color: rgb(199, 199, 17)">Shop Non-Stop on Fashion Point</h1> <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+      <p style="color: rgb(199, 199, 17)">Trusted by more than 1 Crore Indians </p><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+      <p style="color: rgb(199, 199, 17);">Cash on Delivery | Free Delivery </p><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+      <p style="color: rgb(199, 199, 17);">Download The App</p>
       <div id="footer_imgs">
         <div>
           <img src="https://images.meesho.com/images/pow/playstore-icon-big.png" alt="">
@@ -299,12 +654,9 @@
         <p>Notices and Returns</p>
       </div>
     </div>
-    <div id="contact">
-      
-  </div>
   <div id="shadow">
     <div>
-      <h3>More About Meesho</h3>
+      <h3 style="color: rgb(199, 199, 17);">More About Fashion Point</h3>
       <hr>
       <h3><b>Meesho: Affordable Online Shopping at Your Fingertips</b></h3>
       <p>There are many benefits of shopping online. You can take your time and look at different options to find
@@ -526,8 +878,26 @@
 
 <script>
   let username = localStorage.getItem("username")
-  console.log(username)
+  if(username){
   let profile = document.getElementById("username")
   profile.textContent = username
-  
+  }
+  else{
+    profile.textContent = "PROFILE"
+  }
+
+
+// // optional: close dropdown when clicking outside
+// document.addEventListener("click", function(event) {
+//   var dropdownMenu = document.getElementById("dropdown-menu");
+//   if (event.target.closest("#profile") === null && event.target !== dropdownMenu) {
+//     dropdownMenu.style.display = "none";
+//   }
+// });
+
+// // additional: close dropdown when leaving the profile element
+// document.getElementById("profile").addEventListener("mouseleave", function() {
+//   var dropdownMenu = document.getElementById("dropdown-menu");
+//   dropdownMenu.style.display = "none";
+// });
 </script>
