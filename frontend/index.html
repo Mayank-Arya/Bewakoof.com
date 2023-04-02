@@ -323,29 +323,7 @@
             
           }
 
-          /* ***********************************  DROPDOWN FOR PROFILE   *******************************************/
-          #dropdown-menu {
-  display: none;
-  position: absolute;
-  z-index: 1;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 0;
-  margin: 0;
-}
-
-#dropdown-menu li {
-  display: block;
-  padding: 12px 16px;
-}
-
-#dropdown-menu li:hover {
-  background-color: #f1f1f1;
-}
-
-#profile:hover #dropdown-menu {
-  display: block;
-}
+ 
 
 
 
@@ -443,37 +421,29 @@
       </div>
       <div id="lowerdiv">
        <div id="logo">
-           <img src="./photos/Fashion (2).png" alt="logo">
+           <img id="logoId" src="./photos/Fashion (2).png" alt="logo">
        </div>
        <div id="items">
-           <p>MEN</p>
-           <p>WOMEN</p>
-           <p>MOBILE COVERS</p>
+           <p id="mens">MEN</p>
+           <p id="womens">WOMEN</p>
+           <p id="mobile">MOBILE COVERS</p>
        </div>
        <div id="searchbar">
         <input type="text" id="search" placeholder="Search By Product,category or collection">
        </div>
        <div id="rightdiv">
            <div style="border: 1px solid gray; height: 50%;"></div>
-          <p>Login</p>
+          <p id="loginbtn">Login</p>
           <img src="./photos/love.png" alt="loveitem">
-          <img src="./photos/cart.png" alt="cart">
+          <img id="cartb" src="./photos/cart.png" alt="cart">
           <div id="profile"  style="border: 2px solid black; color: black;">
-            <!-- <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PROFILE</p> -->
-            <button>My Account</button>
-  <ul id="dropdown-menu">
-    <li><a href="#">Username</a></li>
-    <li><a href="#">My Account</a></li>
-    <li><a href="#">My Wallet</a></li>
-    <li><a href="#">My Orders</a></li>
-    <li><a href="#">Logout</a></li>
-  </ul>
+            <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PROFILE</p>
           </div>
        </div>
       </div>
       <div id="bottomdiv">
-           <p>MEN</p>
-           <p>WOMEN</p>
+           <p id="mens">MEN</p>
+           <p id="womens">WOMEN</p>
            <p>ACCESSORIES</p>
            <p>TEEN</p>
       </div>
@@ -900,4 +870,44 @@
 //   var dropdownMenu = document.getElementById("dropdown-menu");
 //   dropdownMenu.style.display = "none";
 // });
+
+
+let mens = document.getElementById("mens")
+    mens.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./product.html"
+      }, 500);
+    })
+
+    let logo = document.getElementById("logoId")
+    logo.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./index.html"
+      }, 500);
+    }) 
+
+    let loginbtn = document.getElementById("loginbtn")
+    loginbtn.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./login.html"
+      }, 500);
+    }) 
+
+
+   let token = localStorage.getItem("token")
+
+  
+    let cartb = document.getElementById("cartb")
+    cartb.addEventListener("click",()=>{
+      if(token){
+      setTimeout(() => {
+        window.location.href = "./cart.html"
+      }, 500);
+    }else{
+    alert("Please Login First!")
+   }
+    }) 
+
+
+
 </script>

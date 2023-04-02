@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Default styles for all screen sizes */
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+        #parent{
+            height: auto;
+            width: 100%;
+            border: 1px solid black;
+            
+        }
+        #navbar{
+            width: 100%;
+            height: 160px;
+            border: 0px solid black;
+            position: static;
+        }
+        #upperdiv{
+            height: 15%;
+            border: 1px solid gray;
+            display: flex;
+            gap: 155px;
+            align-items: center;
+            padding-left: 3%;
+            justify-content: space-between;
+            padding-right: 2%;
+            background-color: rgb(225, 218, 218);
+        }
+        #upperdiv>div>p{
+            font-weight: 15px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #upperdiv>div{
+            width: auto;
+            height: auto;
+            display: flex;
+            gap: 15px;
+        }
+        #lowerdiv{
+            height: 40%;
+            border: 1px solid gray;
+            border-top: 0px;
+            display: flex;
+            gap: 50px;
+            background-color: white;
+        }
+        #bottomdiv{
+          height: 30%;
+          border: 1px solid black;
+          border-top: 0px;
+          border-bottom: 0px;
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          font-size: 20px;
+          text-align: center;
+          background-color: white;
+        }
+        #logo{
+            width: auto;
+            height: auto;
+            align-items: center;
+        }
+        #logo>img{
+            height: 95%;
+            width: 200px;
+            margin-top: 2px;
+        }
+        #items{
+            height: auto;
+            width: auto;
+            border: 0px solid black;
+            display: flex;
+            gap: 30px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            align-items: center;
+        }
+          #searchbar{
+            height: 100%;
+            margin-left: 10%;
+            align-items: center;
+          }
+          #searchbar>input{
+            height: 40px;
+            width: 280px;
+            margin-top: 4%;
+            background-color: rgb(255, 236, 236);
+            color: rgb(223, 196, 196);
+            border: 0px solid gray;
+            border-radius: 5px;
+            border: 0px;
+            color: rgb(83, 83, 83);
+          }
+          #rightdiv{
+            height: auto;
+            width: auto;
+            border: 0px solid black;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+          }
+          #rightdiv>img{
+            width: 30px;
+            height: 50%;
+          }
+          
+          #rightdiv>p{
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+          }
+          #profile{
+            height: 30px;
+            width: 95px;
+            border: 1px solid black;
+            border-radius: 10px;
+            align-items: center;
+            text-align: center;
+            /* justify-content: center; */
+          }
+
+          #middlediv{
+            height: 900px;
+            width: 100%;
+            margin-top: 13%;
+            background-color: white;
+          }
+
+          #slider{
+            height: 400px;
+            border: 1px solid black;
+          }
+          #ad_one{
+            width: 100%;
+          }
+          #ad_one img{
+            width: 100%;
+          }
+
+          #eightdiv{
+            width: 100%;
+            height: 250px;
+            border: 0px solid black;
+            display: flex;
+            gap: 10px;
+            justify-content: space-evenly;
+            align-items: center
+          }
+        
+          #eightdiv>div{
+            height:auto;
+            width: 12%;
+            border: 0px solid black;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 12px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+          }
+          #eightdiv>div>img {
+            width: 120%;
+            border-radius: 10px;
+            height: 120%;
+
+          }
+          #profile{
+            border: 0px;
+            background-color: white;
+          }
+
+          .cart{
+            width: 90%;
+            height: auto;
+            margin: auto;
+            border: 0px solid black;
+            margin-top: 5%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+          }
+         
+          .cart>div>{
+            height: auto;
+          }
+
+          .cart>div>img{
+          width: 100%;
+          height: auto;
+          }
+
+      </style>
+</head>
+<body>
+  <div id="parent">
+    <div id="navbar">
+      <div id="upperdiv">
+      <div>
+       <p>Offers</p>
+       <p>Fanbook</p>
+       <p>Download App</p>
+       <p>TriBe Membership</p>
+      </div>
+      <div>
+       <p>Contact Us</p>
+       <p>Track Order</p>
+      </div>
+      </div>
+      <div id="lowerdiv">
+       <div id="logo">
+           <img id="logoId" src="./photos/Fashion (2).png" alt="logo">
+       </div>
+       <div id="items">
+           <p id="mens">MEN</p>
+           <p id="womens">WOMEN</p>
+           <p id="mobile">MOBILE COVERS</p>
+       </div>
+       <div id="searchbar">
+        <input type="text" id="search" placeholder="Search By Product,category or collection">
+       </div>
+       <div id="rightdiv">
+           <div style="border: 1px solid gray; height: 50%;"></div>
+          <p id="loginbtn">Login</p>
+          <img src="./photos/love.png" alt="loveitem">
+          <img id="cartb" src="./photos/cart.png" alt="cart">
+          <div id="profile"  style="border: 2px solid black; color: black;">
+            <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PROFILE</p>
+          </div>
+       </div>
+      </div>     
+
+        <div class="cart-coupon">
+          <input type="text" placeholder="Coupon code" />
+        </div>
+        <div class="cart-total">
+          Total: $<span id="totalPrice">0</span>
+        </div>
+        <div class="cart">
+            <!-- Items will be dynamically added here with JavaScript -->
+          </div>
+</body>
+</html>
+
+<script>
+    // Retrieve cart items from localStorage and display them
+    let  cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    let cartContainer = document.querySelector(".cart");
+
+    // Iterate over each item in the cart and create a new cart item element for it
+    cart.forEach(item => {
+      let div  = document.createElement("div")
+      let img = document.createElement("img")
+    //   img.setAttribute("id",'img')
+      img.setAttribute("src",item.Image)
+      let name = document.createElement("p")
+      name.textContent = item.name
+    //   name.setAttribute("class","pre")
+      let price = document.createElement("p")
+      price.textContent = `₹${item.price}`
+    //   price.setAttribute("class","pre")
+      let brand = document.createElement("p")
+      brand.textContent = item.brand
+      let button = document.createElement("button")
+      button.textContent = "Remove"
+      button.addEventListener("click",()=>{
+        alert("Remove it")
+      })
+    div.append(img,name,price,brand,button)
+    cartContainer.append(div)
+    });
+</script>
