@@ -57,7 +57,7 @@
             <p id="title" style="font-size: 20px; color: rgb(140, 133, 133); font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;margin-left: 5%;">Men's Black Gohan Graphic Printed T-shirt</p>
             <div id="rating" style="border: 1px solid black; width: 90px; margin-left: 5%; margin-top: 2%; padding: 1%; border-radius: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Ratings: 4.5</div>
             <div class="discount">
-              <span class="price">₹499</span>
+              ₹<span class="price" id="Myprice">499</span>
               <span class="percent-off">50% OFF</span>
             </div>
             <p id="rating" style=" margin-left: 5%; margin-top: 1%; color: gray; padding: 1%;  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">inclusive of all taxes</p>
@@ -453,5 +453,17 @@ let mens = document.getElementById("mens")
       }, 500);
     }) 
 
+
+
+    let Price = document.querySelector("#Myprice")
+    Price.textContent = item.price
+    let buynow = document.getElementById("buyNow")
+    buynow.addEventListener("click",()=>{
+    let obj = {price:item.price}
+    localStorage.setItem("Itemprice",JSON.stringify(obj))
+    setTimeout(() => {
+      window.location.href = "./payment.html"
+    }, 500);
+    })
 
 </script>

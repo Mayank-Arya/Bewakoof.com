@@ -307,7 +307,7 @@ button#loginbtn:active {
 
         <div id="middlediv">
             <div id="leftmid">
-              <h1>Welcome to the world of <br> Bewakoof !</h1> <br> 
+              <h1>Welcome to the world of <br> Fashion!</h1> <br> 
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
               <img src="./photos/loginimg.webp" alt="loginimage">
             </div>
@@ -357,12 +357,18 @@ button#loginbtn:active {
     .then(res=>res.json())
     .then((data)=>{
         console.log(data)
-        localStorage.setItem('token',data.token)
+        if(!data.req){
+          alert("Login Failed, Please fill the correct data")
+          return
+        }else{
+          localStorage.setItem('token',data.token)
         localStorage.setItem ('username',data.username)
         alert("Login Succeccfull, Welcome back")
         setTimeout(() => {
          window.location.href = './index.html'
         }, 2000); 
+        }
+        
     })
     })
 

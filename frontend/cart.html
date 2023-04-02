@@ -14,7 +14,7 @@
         #parent{
             height: auto;
             width: 100%;
-            border: 1px solid black;
+            border: 0px solid black;
             
         }
         #navbar{
@@ -54,7 +54,7 @@
         }
         #bottomdiv{
           height: 30%;
-          border: 1px solid black;
+          border: 0px solid black;
           border-top: 0px;
           border-bottom: 0px;
           display: flex;
@@ -122,7 +122,7 @@
           #profile{
             height: 30px;
             width: 95px;
-            border: 1px solid black;
+            border: 0px solid black;
             border-radius: 10px;
             align-items: center;
             text-align: center;
@@ -138,7 +138,7 @@
 
           #slider{
             height: 400px;
-            border: 1px solid black;
+            border: 0px solid black;
           }
           #ad_one{
             width: 100%;
@@ -193,9 +193,18 @@
             height: auto;
           }
 
+          .cart-total{
+            font-size: 35px;
+          }
+
           .cart>div>img{
           width: 100%;
           height: auto;
+          }
+
+          .cartBTN>button{
+            width: 70px;
+            height: 30px;
           }
 
       </style>
@@ -238,11 +247,19 @@
        </div>
       </div>     
 
-        <div class="cart-coupon">
-          <input type="text" placeholder="Coupon code" />
-        </div>
-        <div class="cart-total">
-          Total: $<span id="totalPrice">0</span>
+        <div style="padding-left: 3%; padding-top: 3%;">
+          <div class="cart-coupon">
+            <input type="text" placeholder="Coupon code" />
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="cart-total">
+            Total: ₹<span id="totalPrice">0</span>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="cartBTN">
+            <button class="BTN">Buy Now</button>
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
         <div class="cart">
             <!-- Items will be dynamically added here with JavaScript -->
@@ -254,9 +271,12 @@
     // Retrieve cart items from localStorage and display them
     let  cart = JSON.parse(localStorage.getItem("cartItems")) || [];
     let cartContainer = document.querySelector(".cart");
-
+     display(cart)
+     
     // Iterate over each item in the cart and create a new cart item element for it
-    cart.forEach(item => {
+    function display(cart){
+      cartContainer.innerHTML = null
+      cart.forEach((item,index) => {
       let div  = document.createElement("div")
       let img = document.createElement("img")
     //   img.setAttribute("id",'img')
@@ -272,9 +292,45 @@
       let button = document.createElement("button")
       button.textContent = "Remove"
       button.addEventListener("click",()=>{
-        alert("Remove it")
+      cart.splice(index,1)
+      display(cart)
+      localStorage.setItem("cartItems",JSON.stringify(cart))
+      
       })
     div.append(img,name,price,brand,button)
     cartContainer.append(div)
+
+
+    let total =  cart.reduce((acc,item)=>{
+        return acc + item.price
+      },0)
+      console.log(total)
+      document.getElementById('totalPrice').innerText = total
     });
+    
+    }
+   
+
+    let mens = document.getElementById("mens")
+    mens.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./product.html"
+      }, 500);
+    })
+
+    let logo = document.getElementById("logoId")
+    logo.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./index.html"
+      }, 500);
+    })  
+     
+    
+    let buy = document.querySelector(".BTN")
+  buy.addEventListener("click",()=>{
+    setTimeout(() => {
+      window.location.href = "./payment.html"
+    }, 500);
+  })
+
 </script>

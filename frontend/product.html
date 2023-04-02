@@ -39,7 +39,7 @@
                <div style="border: 1px solid gray; height: 50%;"></div>
               <p>Login</p>
               <img src="./photos/love.png" alt="loveitem">
-              <img src="./photos/cart.png" alt="cart">
+              <img id="cartb" src="./photos/cart.png" alt="cart">
               <div id="profile" ">
                 <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Profile</p>
               </div>
@@ -1484,6 +1484,7 @@
             window.location.href = "./productInfo.html"
           }, 500);
         })
+
         let img = document.createElement("img")
         img.setAttribute("src",ele.Image)
         let p = document.createElement("p")
@@ -1501,6 +1502,7 @@
         maindiv.append(div)
     });
     }
+
     let mens = document.getElementById("mens")
     mens.addEventListener("click",()=>{
       setTimeout(() => {
@@ -1515,8 +1517,6 @@
       }, 500);
     }) 
 
-
-
     let token = localStorage.getItem('token')
     let cartb = document.getElementById("cartb")
     cartb.addEventListener("click",()=>{
@@ -1528,6 +1528,5 @@
     alert("Please Login First!")
    }
     }) 
-
 
   </script>

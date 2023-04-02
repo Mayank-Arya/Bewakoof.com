@@ -3,8 +3,9 @@ const productRouter=express.Router()
 const {productmodel}=require("../models/product.model")
 
 productRouter.get("/",async(req,res)=>{
+    const query = req.query
     try{
-        const data=await productmodel.find()
+        const data=await productmodel.find(query)
         res.send(data)
     }catch(err){
         res.send(err.message)

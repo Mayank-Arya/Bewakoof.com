@@ -305,7 +305,7 @@ button#signup:active {
         </div>
           <div id="middlediv">
               <div id="leftmid">
-                <h1>Welcome to the world of <br> Bewakoof !</h1> <br> 
+                <h1>Welcome to the world of <br> Fashion!</h1> <br> 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
                 <img src="./photos/loginimg.webp" alt="loginimage">
               </div>
@@ -345,6 +345,7 @@ button#signup:active {
 
 
 <script>
+  let signupbtn = document.getElementById("signup")
 
     let name = document.getElementById("name")
     let email = document.getElementById("email")
@@ -374,6 +375,7 @@ button#signup:active {
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
+            alert("SignUp Successfull")
             setTimeout(() => {
               window.location.href = "./login.html"
             }, 2000);

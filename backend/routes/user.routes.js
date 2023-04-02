@@ -4,6 +4,7 @@ const userRouter = express.Router()
 const {userModel} = require("../models/user.model")
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
+// const cors = require(cors())
 
 //registration
 userRouter.post('/register',async(req,res)=>{
@@ -16,7 +17,8 @@ try{
     })
 }
 catch(err){
-res.status(400).send("msg:Something went wrong")
+res.status(400).send({msg:err.message, req:false})
+return
 }
 
 })
@@ -34,7 +36,7 @@ userRouter.post('/login',async (req,res)=>{
     bcrypt.compare(password,user.password,(err, result)=>{
     // result == true
     if(result){
-        res.status(200).send({"msg":"Login Successful","token":jwt.sign({"userID": user._id},'project',),"username":user.name})
+        res.status(200).send({"msg":"Login Successful","token":jwt.sign({"userID": user._id},'project',),"username":user.name , 'req':true})
     }else{
         res.status(400).send({'msg':"Login Failed"})
     }
@@ -42,7 +44,7 @@ userRouter.post('/login',async (req,res)=>{
     }
 }
     catch(err){
-        res.status(400).send({'msg':"Login Failed"})
+        res.status(400).send({'msg':"Login Failed",req:false})
         }
     })
 
