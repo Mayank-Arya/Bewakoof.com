@@ -365,7 +365,7 @@ button#signup:active {
             gender:gender.value
         }
         if(payload.name && payload.email && payload.password && payload.location && payload.age && payload.gender){
-          fetch("http://localhost:9090/users/register",{
+          fetch("https://lazy-gold-barracuda-ring.cyclic.app/users/register",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

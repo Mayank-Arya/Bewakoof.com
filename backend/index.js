@@ -8,6 +8,10 @@ const app = express()
 app.use(express.json())
 
 app.use(cors())
+// app.use("/",(req,res)=>{
+//     res.send("Hello EveryOne")
+// })
+
 app.use("/users",userRouter)
 // auth middlewares
 app.use("/products",productRouter)
