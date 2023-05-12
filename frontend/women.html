@@ -1460,20 +1460,20 @@
     
     function fetchData(){
 
-   fetch("https://lazy-gold-barracuda-ring.cyclic.app/products?category=female")
+      fetch("http://localhost:9090/products?category=female")
    .then(res=>res.json())
    .then((data)=>{
          arr=data
-         hl(arr)
-         displayData(arr)
+        //  hl(arr)
+         
         console.log(data)
+        displayData(data)
         // displayData(data)
     })
-   .catch(err=>console.log(err))
+   .catch(err=>console.log("You need to login"))
     }
 
     fetchData()
-
    let maindiv = document.getElementById("rightD")
 
     function displayData(data){

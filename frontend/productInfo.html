@@ -446,6 +446,18 @@ let mens = document.getElementById("mens")
    }
     }) 
 
+
+    let buy_now = document.getElementById("buyNow")
+    buy_now.addEventListener("click",()=>{
+      if(token){
+      setTimeout(() => {
+        window.location.href = "./payment.html"
+      }, 500);
+    }else{
+    alert("Please Login First!")
+   }
+    }) 
+
     let loginbtn = document.getElementById("loginbtn")
     loginbtn.addEventListener("click",()=>{
       setTimeout(() => {

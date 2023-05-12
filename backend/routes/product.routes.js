@@ -1,6 +1,7 @@
 const express= require('express')
 const productRouter=express.Router()
 const {productmodel}=require("../models/product.model")
+const {auth} = require('../middlewares/auth.middleware')
 
 productRouter.get("/",async(req,res)=>{
     const query = req.query

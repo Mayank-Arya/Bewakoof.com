@@ -36,14 +36,21 @@
             <input type="text" id="search" placeholder="Search By Product,category or collection">
            </div>
            <div id="rightdiv">
-               <div style="border: 1px solid gray; height: 50%;"></div>
-              <p>Login</p>
-              <img src="./photos/love.png" alt="loveitem">
-              <img id="cartb" src="./photos/cart.png" alt="cart">
-              <div id="profile" ">
-                <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Profile</p>
+            <div style="border: 1px solid gray; height: 50%;"></div>
+            <p id="loginbtn">Login</p>
+            <img src="./photos/love.png" alt="loveitem">
+            <img id="cartb" src="./photos/cart.png" alt="cart">
+            <div id="profile" style="border: 2px solid black; color: black; position: relative;">
+              <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; cursor: pointer;">PROFILE</p>
+              <div id="dropdown" style="display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: white; z-index: 1; border: 1px solid gray; border-top: none;">
+                <p class="opt" id="naming" style="padding: 8px;">Name</p>
+                <p class="opt" style="padding: 8px;">Settings</p>
+                <p class="opt" style="padding: 8px;">My Orders</p>
+                <p class="opt" id="logout" style="padding: 8px;">Logout</p>
               </div>
-           </div>
+            </div>
+          </div>
+          
           </div>
           
         </div>
@@ -1452,24 +1459,19 @@
     profile.textContent = "PROFILE"
   }
   
-  
-      // addField.onclick = function(){
-      //     add_list.classList.toggle("add_hide");
-      //     add_arrow.classList.toggle("rotate");
-      // }
-    
     function fetchData(){
 
-   fetch("https://lazy-gold-barracuda-ring.cyclic.app/products")
+   fetch("http://localhost:9090/products?category=male")
    .then(res=>res.json())
    .then((data)=>{
          arr=data
-         hl(arr)
-         displayData(arr)
+        //  hl(arr)
+         
         console.log(data)
+        displayData(data)
         // displayData(data)
     })
-   .catch(err=>console.log(err))
+   .catch(err=>console.log("You need to login"))
     }
 
     fetchData()
@@ -1477,7 +1479,10 @@
    let maindiv = document.getElementById("rightD")
 
     function displayData(data){
-    data.forEach((ele,ind) => {
+      maindiv.innerHTML = ""
+      
+      data.forEach((ele,ind) => {
+        
         let div = document.createElement("div")
         div.setAttribute("id","image-container")
 
@@ -1521,6 +1526,7 @@
     }) 
 
     let token = localStorage.getItem('token')
+    // console.log(token)
     let cartb = document.getElementById("cartb")
     cartb.addEventListener("click",()=>{
       if(token){
@@ -1532,16 +1538,29 @@
    }
     }) 
 
-    let H_L = document.getElementById("H_L")
-   function hl(arr){
-    H_L.addEventListener("click",(e)=>{
-      e.preventDefault()
-     let x =  arr.sort((a,b)=>{
-        return b.price-a.price
-      })
-      displayData(x)
-    })
+  //   let H_L = document.getElementById("H_L")
+  //  function hl(arr){
+  //   H_L.addEventListener("click",(e)=>{
+  //     e.preventDefault()
+  //    let x =  arr.sort((a,b)=>{
+  //       return b.price-a.price
+  //     })
+  //     displayData(x)
+  //   })
     
-   }
+  //  }
+
+
   
+    var dropdown = document.getElementById("dropdown");
+  var username2 = document.getElementById("username");
+  username2.addEventListener("click", function() {
+    if (dropdown.style.display === "none") {
+      dropdown.style.display = "block";
+    } else {
+      dropdown.style.display = "none";
+    }
+  });
+
+
   </script>

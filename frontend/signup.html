@@ -16,6 +16,21 @@
             border: 1px solid black;
             
         }
+
+        #logo{
+          cursor: pointer;
+        }
+        #mens{
+          cursor: pointer;
+        }
+        #womens{
+          cursor: pointer;
+        }
+        #mobile{
+          cursor: pointer;
+        }
+
+
         #navbar{
             width: 100%;
             height: 160px;
@@ -365,21 +380,26 @@ button#signup:active {
             gender:gender.value
         }
         if(payload.name && payload.email && payload.password && payload.location && payload.age && payload.gender){
-          fetch("https://lazy-gold-barracuda-ring.cyclic.app/users/register",{
+          fetch("http://localhost:9090/users/register",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
             },
             body:JSON.stringify(payload)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            alert("SignUp Successfull")
-            setTimeout(() => {
-              window.location.href = "./login.html"
-            }, 2000);
-        })
+        .then(res => res.json())
+            .then(data => {
+                if (data.msg === "User already exists! Please log in.") {
+                    alert(data.msg)
+                    window.location.href = "./login.html"
+                } else {
+                    console.log(data)
+                    alert("SignUp Successfull")
+                    setTimeout(() => {
+                        window.location.href = "./login.html"
+                    }, 2000);
+                }
+            })
         }else{
           alert("Please fill all the fields")
         }    

@@ -43,6 +43,20 @@
             display: flex;
             gap: 15px;
         }
+
+        #logo{
+          cursor: pointer;
+        }
+
+        #mens{
+          cursor: pointer;
+        }
+        #womens{
+          cursor: pointer;
+        }
+        #mobile{
+          cursor: pointer;
+        }
         #lowerdiv{
             height: 40%;
             border: 1px solid gray;
@@ -64,6 +78,7 @@
           background-color: white;
         }
         #logo{
+          cursor: pointer;
             width: auto;
             height: auto;
             align-items: center;
@@ -262,6 +277,9 @@
             margin-top: 2%;
             justify-content: space-around;
           }
+          #cartb{
+  cursor: pointer;
+}
           #insideTrend>div{
             border: 0px solid black;
             height: auto;
@@ -362,9 +380,10 @@
 
   /* *************************************************************************************** */
 
-
-
-  
+  #loginbtn{
+  cursor: pointer;
+  }
+ 
 #insideTrend>div {
     /* position: relative; */
     overflow: hidden;
@@ -397,6 +416,47 @@
   }
   
 
+  /* **********************************DROP DOWN CSS PART */
+
+
+  #dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  background-color: white;
+  z-index: 1;
+  border: 1px solid #ccc;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+#username:hover + #dropdown {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.opt:hover {
+  background-color: rgb(128, 108, 108);
+  cursor: pointer;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 
 </style>
 </head>
@@ -428,14 +488,21 @@
         <input type="text" id="search" placeholder="Search By Product,category or collection">
        </div>
        <div id="rightdiv">
-           <div style="border: 1px solid gray; height: 50%;"></div>
-          <p id="loginbtn">Login</p>
-          <img src="./photos/love.png" alt="loveitem">
-          <img id="cartb" src="./photos/cart.png" alt="cart">
-          <div id="profile"  style="border: 2px solid black; color: black;">
-            <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">PROFILE</p>
+        <div style="border: 1px solid gray; height: 50%;"></div>
+        <p id="loginbtn">Login</p>
+        <img src="./photos/love.png" alt="loveitem">
+        <img id="cartb" src="./photos/cart.png" alt="cart">
+        <div id="profile" style="border: 2px solid black; color: black; position: relative;">
+          <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; cursor: pointer;">PROFILE</p>
+          <div id="dropdown" style="display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: white; z-index: 1; border: 1px solid gray; border-top: none;">
+            <p class="opt" id="naming" style="padding: 8px;">Name</p>
+            <p class="opt" style="padding: 8px;">Settings</p>
+            <p class="opt" style="padding: 8px;">My Orders</p>
+            <p class="opt" id="logout" style="padding: 8px;">Logout</p>
           </div>
-       </div>
+        </div>
+      </div>
+      
       </div>
       <div id="bottomdiv">
            <p id="mens">MEN</p>
@@ -843,29 +910,16 @@
 </html>
 
 <script>
+  var username2 = document.getElementById("username");
+  
   let username = localStorage.getItem("username")
   if(username){
-  let profile = document.getElementById("username")
+  let profile = document.getElementById("naming")
   profile.textContent = username
   }
   else{
-    profile.textContent = "PROFILE"
+    username2.textContent = "SignUp"
   }
-
-
-// // optional: close dropdown when clicking outside
-// document.addEventListener("click", function(event) {
-//   var dropdownMenu = document.getElementById("dropdown-menu");
-//   if (event.target.closest("#profile") === null && event.target !== dropdownMenu) {
-//     dropdownMenu.style.display = "none";
-//   }
-// });
-
-// // additional: close dropdown when leaving the profile element
-// document.getElementById("profile").addEventListener("mouseleave", function() {
-//   var dropdownMenu = document.getElementById("dropdown-menu");
-//   dropdownMenu.style.display = "none";
-// });
 
 
 let mens = document.getElementById("mens")
@@ -874,6 +928,13 @@ let mens = document.getElementById("mens")
         window.location.href = "./product.html"
       }, 500);
     })
+    let womens = document.getElementById("womens")
+    womens.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./women.html"
+      }, 500);
+    })
+
 
     let logo = document.getElementById("logoId")
     logo.addEventListener("click",()=>{
@@ -904,6 +965,27 @@ let mens = document.getElementById("mens")
    }
     }) 
 
+    
+    var dropdown = document.getElementById("dropdown");
+  var username2 = document.getElementById("username");
+  username2.addEventListener("click", function() {
+    if (dropdown.style.display === "none") {
+      dropdown.style.display = "block";
+    } else {
+      dropdown.style.display = "none";
+    }
+  });
+
+
+  const logout = document.getElementById('logout')
+  logout.addEventListener('click',()=>{
+     setTimeout(() => {
+     localStorage.setItem('username','')
+     localStorage.setItem('token','')
+
+      location.reload()
+     }, 1000);
+  })
 
 
 </script>

@@ -17,12 +17,32 @@
             border: 1px solid black;
             
         }
+
+        #mens{
+          cursor: pointer;
+        }
+        #womens{
+          cursor: pointer;
+        }
+        #mobile{
+          cursor: pointer;
+        }
+        #logo{
+          cursor: pointer;
+        }
         #navbar{
             width: 100%;
             height: 160px;
             border: 0px solid black;
             position: fixed;
         }
+
+        #loginbtn{
+  cursor: pointer;
+  }
+  #cartb{
+  cursor: pointer;
+}
         #upperdiv{
             height: 15%;
             border: 1px solid gray;
@@ -64,7 +84,10 @@
           text-align: center;
           background-color: white;
         }
+
+       
         #logo{
+           
             width: auto;
             height: auto;
             align-items: center;
@@ -346,8 +369,7 @@ button#loginbtn:active {
         password:password.value
     }
 
-
-        fetch("https://lazy-gold-barracuda-ring.cyclic.app/users/login",{
+        fetch("http://localhost:9090/users/login",{
         method:"POST",
         "headers":{
             "Content-type":"application/json"
@@ -356,7 +378,7 @@ button#loginbtn:active {
     })
     .then(res=>res.json())
     .then((data)=>{
-        console.log(data)
+      
         if(!data.req){
           alert("Login Failed, Please fill the correct data")
           return
