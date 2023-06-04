@@ -31,29 +31,34 @@ return
 
 
 //login
-userRouter.post('/login',async (req,res)=>{
-    const {email,password}= req.body
-    try{
-        const user = await userModel.findOne({email})
-        console.log(user)
-        if(user){
-        //If this condition got true then=>
-        // Load hash from your password DB.
-    bcrypt.compare(password,user.password,(err, result)=>{
-    // result == true
-    if(result){
-        let token = jwt.sign({"userID": user._id},'project')
-        res.status(200).send({"msg":"Login Successful",token,"username":user.name , 'req':true})
-    }else{
-        res.status(400).send({'msg':"Login Failed"})
+
+userRouter.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+      const user = await userModel.findOne({ email });
+      if (user) {
+        bcrypt.compare(password, user.password, (err, result) => {
+          if (err) {
+            // Handle bcrypt error
+            res.status(500).send({ msg: 'Internal Server Error' });
+          } else if (result) {
+            // Password matches, generate and send JWT token
+            const token = jwt.sign({ userID: user._id }, 'project');
+            res.status(200).send({ msg: 'Login Successful', token, username: user.name, req: true });
+          } else {
+            // Password does not match
+            res.status(401).send({ msg: 'Login Failed' });
+          }
+        });
+      } else {
+        // User not found
+        res.status(404).send({ msg: 'User not found' });
+      }
+    } catch (err) {
+      // Handle other errors
+      res.status(500).send({ msg: 'Internal Server Error' });
     }
-        })
-    }
-}
-    catch(err){
-        res.status(400).send({'msg':"Login Failed",req:false})
-        }
-    })
+  });
 
 module.exports = {userRouter}
 
