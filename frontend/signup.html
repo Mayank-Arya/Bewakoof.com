@@ -17,6 +17,10 @@
             
         }
 
+        #wishlist:hover{
+            cursor: pointer;
+        }
+ 
         #logo{
           cursor: pointer;
         }
@@ -99,22 +103,26 @@
             font-weight: lighter;
             align-items: center;
         }
-          #searchbar{
-            height: 100%;
-            margin-left: 10%;
-            align-items: center;
-          }
-          #searchbar>input{
-            height: 40px;
-            width: 280px;
-            margin-top: 4%;
-            background-color: rgb(255, 236, 236);
-            color: rgb(223, 196, 196);
-            border: 0px solid gray;
-            border-radius: 5px;
-            border: 0px;
-            color: rgb(83, 83, 83);
-          }
+        #search {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+  transition: box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+
+#search:focus {
+  outline: #5c5c5c;
+  box-shadow: 0 0 5px #5c5c5c;
+}
+
+#search::placeholder {
+  color: #999;
+}
+
+
           #rightdiv{
             height: auto;
             width: auto;
@@ -310,7 +318,7 @@ button#signup:active {
            </div>
            <div id="rightdiv">
                <div style="border: 1px solid gray; height: 50%;"></div>
-              <img src="./photos/love.png" alt="loveitem">
+              <img id="wishlist" src="./photos/love.png" alt="loveitem">
               <img src="./photos/cart.png" alt="cart">
               <div id="profile">
                 <p>UserName</p>
@@ -379,8 +387,9 @@ button#signup:active {
             age:age.value,
             gender:gender.value
         }
+        // https://good-cyan-parrot-veil.cyclic.app
         if(payload.name && payload.email && payload.password && payload.location && payload.age && payload.gender){
-          fetch("http://localhost:9090/users/register",{
+          fetch("https://pink-gentle-earthworm.cyclic.app//users/register",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -405,12 +414,44 @@ button#signup:active {
         }    
     })
 
+    let wishlistbtn = document.getElementById("wishlist")
+    wishlistbtn.addEventListener("click",()=>{
+      if(token){
+      setTimeout(() => {
+        window.location.href = "./wishlist.html"
+      }, 500);
+    }else{
+    alert("Please Login First!")
+   }
+    }) 
 
     
     let mens = document.getElementById("mens")
     mens.addEventListener("click",()=>{
       setTimeout(() => {
         window.location.href = "./product.html"
+      }, 500);
+    })
+
+    let womens = document.getElementById("womens")
+    womens.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./women.html"
+      }, 500);
+    })
+
+    
+    let loginbtn = document.getElementById("loginbtn")
+    loginbtn.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./login.html"
+      }, 500);
+    }) 
+    
+    let all = document.getElementById("mobile")
+    all.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./all.html"
       }, 500);
     })
 

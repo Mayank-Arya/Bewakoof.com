@@ -5,12 +5,12 @@ const {userModel} = require("../models/user.model")
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
 const cors = require('cors')
-
+userRouter.use(cors())
 //registration
 userRouter.post('/register',async(req,res)=>{
     const {name,email,password,location,gender,age} = req.body
 try{
-    isUserPresent = await userModel.find({email})
+    let isUserPresent = await userModel.findOne({email:email})
     if(isUserPresent){
         res.status(400).send({msg:"User already exists! Please log in."})
     }
@@ -42,7 +42,7 @@ userRouter.post('/login',async (req,res)=>{
     bcrypt.compare(password,user.password,(err, result)=>{
     // result == true
     if(result){
-        let token = jwt.sign({"userID": user._id},'project',)
+        let token = jwt.sign({"userID": user._id},'project')
         res.status(200).send({"msg":"Login Successful",token,"username":user.name , 'req':true})
     }else{
         res.status(400).send({'msg':"Login Failed"})

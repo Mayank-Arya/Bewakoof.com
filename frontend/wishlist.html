@@ -17,6 +17,12 @@
             border: 0px solid black;
             
         }
+
+
+        #wishlist:hover{
+            cursor: pointer;
+        }
+  
         #logo{
           cursor: pointer;
         }
@@ -29,12 +35,6 @@
         #womens{
           cursor: pointer;
         }
-
-    
-        #wishlist:hover{
-            cursor: pointer;
-        }
-
         #mobile{
           cursor: pointer;
         }
@@ -290,7 +290,7 @@
 
 <script>
     // Retrieve cart items from localStorage and display them
-    let  cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    let  cart = JSON.parse(localStorage.getItem("wishlistitem")) || [];
     let cartContainer = document.querySelector(".cart");
      display(cart)
      
@@ -339,6 +339,7 @@
       }, 500);
     })
 
+
     let womens = document.getElementById("womens")
     womens.addEventListener("click",()=>{
       setTimeout(() => {
@@ -346,39 +347,30 @@
       }, 500);
     })
 
-
     let all = document.getElementById("mobile")
     all.addEventListener("click",()=>{
       setTimeout(() => {
         window.location.href = "./all.html"
       }, 500);
     })
-
     let logo = document.getElementById("logoId")
     logo.addEventListener("click",()=>{
       setTimeout(() => {
         window.location.href = "./index.html"
       }, 500);
     })  
-     
-    
-    let buy = document.querySelector(".BTN")
-  buy.addEventListener("click",()=>{
-    setTimeout(() => {
-      window.location.href = "./payment.html"
-    }, 500);
-  })
-
-
-  
-  let loginbtn = document.getElementById("loginbtn")
-    loginbtn.addEventListener("click",()=>{
+    let cartb = document.getElementById("cartb")
+    cartb.addEventListener("click",()=>{
+      if(token){
       setTimeout(() => {
-        window.location.href = "./login.html"
+        window.location.href = "./cart.html"
       }, 500);
+    }else{
+    alert("Please Login First!")
+   }
     }) 
-
-  let wishlistbtn = document.getElementById("wishlist")
+     
+    let wishlistbtn = document.getElementById("wishlist")
     wishlistbtn.addEventListener("click",()=>{
       if(token){
       setTimeout(() => {
@@ -388,5 +380,21 @@
     alert("Please Login First!")
    }
     }) 
+
+    
+    let loginbtn = document.getElementById("loginbtn")
+    loginbtn.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./login.html"
+      }, 500);
+    }) 
+
+    
+    let buy = document.querySelector(".BTN")
+  buy.addEventListener("click",()=>{
+    setTimeout(() => {
+      window.location.href = "./payment.html"
+    }, 500);
+  })
 
 </script>

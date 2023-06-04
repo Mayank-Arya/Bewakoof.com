@@ -7,6 +7,12 @@
     <title>Products Mens</title>
     <link rel="stylesheet" href="./styles/navbar.css">
     <!-- <link rel="stylesheet" href=""> -->
+
+    <style>
+      #wishlist:hover{
+          cursor: pointer;
+      }
+  </style>
 </head>
 <body>
     <div id="parent">
@@ -38,7 +44,7 @@
            <div id="rightdiv">
             <div style="border: 1px solid gray; height: 50%;"></div>
             <p id="loginbtn">Login</p>
-            <img src="./photos/love.png" alt="loveitem">
+            <img id="wishlist" src="./photos/love.png" alt="loveitem">
             <img id="cartb" src="./photos/cart.png" alt="cart">
             <div id="profile" style="border: 2px solid black; color: black; position: relative;">
               <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; cursor: pointer;">PROFILE</p>
@@ -1461,7 +1467,7 @@
   
     function fetchData(){
 
-   fetch("http://localhost:9090/products?category=male")
+   fetch("https://pink-gentle-earthworm.cyclic.app/products?category=male")
    .then(res=>res.json())
    .then((data)=>{
          arr=data
@@ -1518,6 +1524,28 @@
       }, 500);
     })
 
+    let womens = document.getElementById("womens")
+    womens.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./women.html"
+      }, 500);
+    })
+
+    let all = document.getElementById("mobile")
+    all.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./all.html"
+      }, 500);
+    })
+
+    
+    let loginbtn = document.getElementById("loginbtn")
+    loginbtn.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./login.html"
+      }, 500);
+    }) 
+
     let logo = document.getElementById("logoId")
     logo.addEventListener("click",()=>{
       setTimeout(() => {
@@ -1550,6 +1578,16 @@
     
   //  }
 
+  let wishlistbtn = document.getElementById("wishlist")
+    wishlistbtn.addEventListener("click",()=>{
+      if(token){
+      setTimeout(() => {
+        window.location.href = "./wishlist.html"
+      }, 500);
+    }else{
+    alert("Please Login First!")
+   }
+    }) 
 
   
     var dropdown = document.getElementById("dropdown");

@@ -22,6 +22,11 @@
             border: 0px solid black;
             position: fixed;
         }
+
+        #wishlist:hover{
+            cursor: pointer;
+        }
+
         #upperdiv{
             height: 15%;
             border: 1px solid gray;
@@ -99,22 +104,26 @@
             font-weight: lighter;
             align-items: center;
         }
-          #searchbar{
-            height: 100%;
-            margin-left: 10%;
-            align-items: center;
-          }
-          #searchbar>input{
-            height: 40px;
-            width: 280px;
-            margin-top: 4%;
-            background-color: rgb(255, 236, 236);
-            color: rgb(223, 196, 196);
-            border: 0px solid gray;
-            border-radius: 5px;
-            border: 0px;
-            color: rgb(83, 83, 83);
-          }
+        #search {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+  transition: box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+
+#search:focus {
+  outline: #5c5c5c;
+  box-shadow: 0 0 5px #5c5c5c;
+}
+
+#search::placeholder {
+  color: #999;
+}
+
+
           #rightdiv{
             height: auto;
             width: auto;
@@ -341,6 +350,8 @@
             
           }
 
+
+
 /* ****************************************************************************************** */
 
 
@@ -457,7 +468,6 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-
 </style>
 </head>
 <body>
@@ -490,7 +500,7 @@
        <div id="rightdiv">
         <div style="border: 1px solid gray; height: 50%;"></div>
         <p id="loginbtn">Login</p>
-        <img src="./photos/love.png" alt="loveitem">
+        <img id="wishlist" src="./photos/love.png" alt="loveitem">
         <img id="cartb" src="./photos/cart.png" alt="cart">
         <div id="profile" style="border: 2px solid black; color: black; position: relative;">
           <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; cursor: pointer;">PROFILE</p>
@@ -936,6 +946,14 @@ let mens = document.getElementById("mens")
     })
 
 
+    let all = document.getElementById("mobile")
+    all.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./all.html"
+      }, 500);
+    })
+
+
     let logo = document.getElementById("logoId")
     logo.addEventListener("click",()=>{
       setTimeout(() => {
@@ -959,6 +977,17 @@ let mens = document.getElementById("mens")
       if(token){
       setTimeout(() => {
         window.location.href = "./cart.html"
+      }, 500);
+    }else{
+    alert("Please Login First!")
+   }
+    }) 
+
+    let wishlistbtn = document.getElementById("wishlist")
+    wishlistbtn.addEventListener("click",()=>{
+      if(token){
+      setTimeout(() => {
+        window.location.href = "./wishlist.html"
       }, 500);
     }else{
     alert("Please Login First!")

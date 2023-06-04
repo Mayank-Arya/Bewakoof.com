@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Info</title>
     <link rel="stylesheet" href="./styles/navbar.css">
+    <style>
+      #wishlist:hover{
+          cursor: pointer;
+      }
+  </style>
 </head>
 <body>
     <div id="parent">
@@ -24,7 +29,7 @@
           </div>
           <div id="lowerdiv">
            <div id="logo">
-               <img src="./photos/Fashion (2).png" alt="logo">
+               <img src="./photos/Fashion (2).png" id="logo" alt="logo">
            </div>
            <div id="items">
                <p id="mens">MEN</p>
@@ -37,7 +42,7 @@
            <div id="rightdiv">
                <div style="border: 1px solid gray; height: 50%;"></div>
               <p id="loginbtn">Login</p>
-              <img src="./photos/love.png" alt="loveitem">
+              <img id="wishlist" src="./photos/love.png" alt="loveitem">
               <img id="cartb" src="./photos/cart.png" alt="cart">
               <div id="profile" ">
                 <p id="username" style="margin-top: 4%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Profile</p>
@@ -75,7 +80,7 @@
             </div>
             <div id="addtocart">
                  <button id="addtoCbtn"><h2>Add To Cart</h2></button>
-                 <button>Wishlist</button>
+                 <button id="wishlist">Wishlist</button>
             </div>
             <p style="margin-left: 5%; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"><img src="./photos/location.svg" alt=""> CHECK FOR DELIVERY DETAILS <br> &nbsp; <br> Delivering in India </p>
             <input type="text" id="pincode" placeholder="enter pincode"> <span></span> <button id="buttonC">Check</button> <br>
@@ -348,9 +353,6 @@
 
 <script>
 
-localStorage.setItem("pincodes",JSON.stringify(['1234','3321','2222','3232','2323','4343']))
-
-
 let button = document.getElementById("buttonC")
 button.addEventListener("click",()=>{
   let pincode = document.getElementById("pincode").value
@@ -419,17 +421,71 @@ let cartbtn = document.getElementById('addtoCbtn');
   }
  }else{
   alert("Please Login First")
+  setTimeout(() => {
+    window.location.href = './login.html'
+  }, 500);
+ }
+});
+
+let wishlist = document.getElementById("wishlist").addEventListener("click",()=>{
+      if(token){
+  let wishlistItems = JSON.parse(localStorage.getItem("wishlistitem")) || [];
+  let itemName = item.name;
+  let isItemAlreadyAdded = wishlistItems.some((cartItem) => wishlistItem.name === itemName);
+
+  if (isItemAlreadyAdded) {
+    alert("You already added this item to your wishlist");
+  } else {
+    wishlistItems.push(item);
+    localStorage.setItem("wishlistitem", JSON.stringify(wishlistItems));
+    alert("Your item has been added to the wishlist.");
+  }
+ }else{
+  alert("Please Login First")
+  setTimeout(() => {
+    window.location.href = './login.html'
+  }, 500);
  }
 
- 
- 
-});
+    })
+
+
+
+let buybtn = document.getElementById("buyNow")
+    buybtn.addEventListener("click",()=>{
+      if(token){
+      setTimeout(() => {
+        window.location.href = "./payment.html"
+      }, 500); 
+    }else{
+    alert("Please Login First!")
+    return setTimeout(() => {
+    window.location.href = './login.html'
+  }, 500);
+   }
+    }) 
+
 
 
 let mens = document.getElementById("mens")
     mens.addEventListener("click",()=>{
       setTimeout(() => {
         window.location.href = "./product.html"
+      }, 500);
+    })
+
+    let womens = document.getElementById("womens")
+    womens.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./women.html"
+      }, 500);
+    })
+    
+
+    let all = document.getElementById("mobile")
+    all.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./all.html"
       }, 500);
     })
 
@@ -447,17 +503,6 @@ let mens = document.getElementById("mens")
     }) 
 
 
-    let buy_now = document.getElementById("buyNow")
-    buy_now.addEventListener("click",()=>{
-      if(token){
-      setTimeout(() => {
-        window.location.href = "./payment.html"
-      }, 500);
-    }else{
-    alert("Please Login First!")
-   }
-    }) 
-
     let loginbtn = document.getElementById("loginbtn")
     loginbtn.addEventListener("click",()=>{
       setTimeout(() => {
@@ -466,16 +511,35 @@ let mens = document.getElementById("mens")
     }) 
 
 
+    let wishlistbtn = document.getElementById("wishlist")
+    wishlistbtn.addEventListener("click",()=>{
+      if(token){
+      setTimeout(() => {
+        window.location.href = "./wishlist.html"
+      }, 500);
+    }else{
+    alert("Please Login First!")
+   }
+    }) 
+
+
+
+    let logo = document.getElementById('logo').addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = 'index.html'
+      }, 500);
+    })
 
     let Price = document.querySelector("#Myprice")
     Price.textContent = item.price
-    let buynow = document.getElementById("buyNow")
-    buynow.addEventListener("click",()=>{
-    let obj = {price:item.price}
-    localStorage.setItem("Itemprice",JSON.stringify(obj))
-    setTimeout(() => {
-      window.location.href = "./payment.html"
-    }, 500);
-    })
+    // let buynow = document.getElementById("buyNow")
+    // buynow.addEventListener("click",()=>{
+    // let obj = {price:item.price}
+    // localStorage.setItem("Itemprice",JSON.stringify(obj))
+    // setTimeout(() => {
+    //   window.location.href = "./payment.html"
+    // }, 500);
+    // })
+
 
 </script>

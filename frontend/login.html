@@ -18,6 +18,10 @@
             
         }
 
+        #wishlist:hover{
+            cursor: pointer;
+        }
+ 
         #mens{
           cursor: pointer;
         }
@@ -85,6 +89,31 @@
           background-color: white;
         }
 
+        #searchbar {
+  position: relative;
+  display: inline-block;
+}
+
+#search {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+  transition: box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+
+#search:focus {
+  outline: #5c5c5c;
+  box-shadow: 0 0 5px #5c5c5c;
+}
+
+#search::placeholder {
+  color: #999;
+}
+
+
        
         #logo{
            
@@ -108,7 +137,7 @@
             font-weight: lighter;
             align-items: center;
         }
-          #searchbar{
+          /* #searchbar{
             height: 100%;
             margin-left: 10%;
             align-items: center;
@@ -123,7 +152,7 @@
             border-radius: 5px;
             border: 0px;
             color: rgb(83, 83, 83);
-          }
+          } */
           #rightdiv{
             height: auto;
             width: auto;
@@ -358,47 +387,79 @@ button#loginbtn:active {
 
 
 <script>
-    let login = document.getElementById("loginbtn")
-    login.addEventListener("click",()=>{
-
-    let email = document.getElementById("email")
-    let password = document.getElementById("pass")
+    document.addEventListener('DOMContentLoaded', () => {
+  let login = document.getElementById("loginbtn");
+  login.addEventListener("click", () => {
+    let email = document.getElementById("email");
+    let password = document.getElementById("pass");
 
     let payload = {
-        email:email.value,
-        password:password.value
-    }
+      email: email.value,
+      password: password.value
+    };
 
-        fetch("http://localhost:9090/users/login",{
-        method:"POST",
-        "headers":{
-            "Content-type":"application/json"
-        },
-        body:JSON.stringify(payload)
+    fetch("https://pink-gentle-earthworm.cyclic.app/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
     })
-    .then(res=>res.json())
-    .then((data)=>{
+      .then(res => res.json())
+      .then((data) => {
+         console.log(data)
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('username', data.username);
+          alert("Login Successful, Welcome back");
+          setTimeout(() => {
+            window.location.href = './index.html';
+          }, 2000);
+      }).catch((err) => {
+  console.log(err.message);
+  alert("Login Failed, Please fill in the correct data");
+});
+
       
-        if(!data.req){
-          alert("Login Failed, Please fill the correct data")
-          return
-        }else{
-          localStorage.setItem('token',data.token)
-        localStorage.setItem ('username',data.username)
-        alert("Login Succeccfull, Welcome back")
-        setTimeout(() => {
-         window.location.href = './index.html'
-        }, 2000); 
-        }
-        
-    })
-    })
+  });
+});
 
+let wishlistbtn = document.getElementById("wishlist")
+    wishlistbtn.addEventListener("click",()=>{
+      if(token){
+      setTimeout(() => {
+        window.location.href = "./wishlist.html"
+      }, 500);
+    }else{
+    alert("Please Login First!")
+   }
+    }) 
 
     let mens = document.getElementById("mens")
     mens.addEventListener("click",()=>{
       setTimeout(() => {
         window.location.href = "./product.html"
+      }, 500);
+    })
+
+    let womens = document.getElementById("womens")
+    womens.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./women.html"
+      }, 500);
+    })
+
+
+    
+    let loginbtn = document.getElementById("loginbtn")
+    loginbtn.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./login.html"
+      }, 500);
+    }) 
+    let all = document.getElementById("mobile")
+    all.addEventListener("click",()=>{
+      setTimeout(() => {
+        window.location.href = "./all.html"
       }, 500);
     })
 

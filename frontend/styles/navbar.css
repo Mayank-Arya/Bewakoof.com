@@ -5,7 +5,7 @@
 #parent{
     height: auto;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid gray;
     
 }
 #loginbtn{
@@ -79,6 +79,7 @@
   padding-top: 1%;
   color: gray;
 }
+
 #logo{
     width: auto;
     height: auto;

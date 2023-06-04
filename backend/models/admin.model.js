@@ -26,12 +26,9 @@ const userSchema = mongoose.Schema({
     age:{
       type:Number,
       required: true
-    },
-    productid: {
-      type: Array
     }
   },{
-    timestamps:true
+    timestamps: true
   })
 
 const userModel = mongoose.model('user',userSchema)
