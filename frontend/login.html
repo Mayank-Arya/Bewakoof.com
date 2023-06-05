@@ -348,8 +348,8 @@ button#loginbtn:active {
            </div>
            <div id="rightdiv">
                <div style="border: 1px solid gray; height: 50%;"></div>
-              <img src="./photos/love.png" alt="loveitem">
-              <img src="./photos/cart.png" alt="cart">
+              <img id="wishlistbtn" src="./photos/love.png" alt="loveitem">
+              <img id="cartb" src="./photos/cart.png" alt="cart">
               <div id="profile">
                 <p>UserName</p>
               </div>
@@ -387,7 +387,7 @@ button#loginbtn:active {
 
 
 <script>
-   document.addEventListener('DOMContentLoaded', () => {
+   document.addEventListener('click', () => {
   let login = document.getElementById("loginbtn");
   login.addEventListener("click", () => {
     let email = document.getElementById("email").value;
@@ -397,6 +397,7 @@ button#loginbtn:active {
       email: email,
       password: password
     };
+
 
     fetch("https://pink-gentle-earthworm.cyclic.app/users/login", {
       method: "POST",
@@ -421,13 +422,15 @@ button#loginbtn:active {
       })
       .catch((err) => {
         console.log(err);
-        alert("Login Failed, Please try again later");
+        alert("Login Failed, Please try again");
       });
   });
 });
 
 
-let wishlistbtn = document.getElementById("wishlist")
+let token = localStorage.getItem("token")
+
+let wishlistbtn = document.getElementById("wishlistbtn")
     wishlistbtn.addEventListener("click",()=>{
       if(token){
       setTimeout(() => {
@@ -437,6 +440,19 @@ let wishlistbtn = document.getElementById("wishlist")
     alert("Please Login First!")
    }
     }) 
+
+
+    let cartb = document.getElementById("cartb")
+    cartb.addEventListener("click",()=>{
+      if(token){
+      setTimeout(() => {
+        window.location.href = "./cart.html"
+      }, 500);
+    }else{
+    alert("Please Login First!")
+   }
+    }) 
+
 
     let mens = document.getElementById("mens")
     mens.addEventListener("click",()=>{
@@ -460,6 +476,8 @@ let wishlistbtn = document.getElementById("wishlist")
         window.location.href = "./login.html"
       }, 500);
     }) 
+
+
     let all = document.getElementById("mobile")
     all.addEventListener("click",()=>{
       setTimeout(() => {
