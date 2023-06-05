@@ -1,7 +1,9 @@
 <h1> Project Title <h1>
 <h3>Bewakoof.com is an Indian e-commerce website offering affordable and trendy clothing for men and women, known for its quirky designs and engaging social media presence. It has gained popularity for its humorous approach to fashion and wide range of products.</h3>
-
-  # Features
+* An Individual project built in 5 days
+  
+  
+ # Features
 
 You will be able to create your account using login and signup option with firebase, used API calls for validating user credentials.
 
