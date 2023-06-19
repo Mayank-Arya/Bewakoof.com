@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const productmodel = require('../models/product.model')
+
 const userSchema = mongoose.Schema({
     name: {
       type:String,
@@ -30,7 +30,7 @@ const userSchema = mongoose.Schema({
     cart: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'productmodel'
+        ref: 'Product'
       }
     ]
   },{
