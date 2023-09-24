@@ -1,21 +1,21 @@
 
 
-<h1> Project Title <h1>
-<h3>Bewakoof.com is an Indian e-commerce website offering affordable and trendy clothing for men and women, known for its quirky designs and engaging social media presence. It has gained popularity for its humorous approach to fashion and wide range of products.</h3>
+<h1> fashion Point <h1>
+<h3>Fashion Point is a clone of a website called bewakoof.com, an Indian e-commerce website offering affordable and trendy clothing for men and women, known for its quirky designs and engaging social media presence. Its humorous approach to fashion and wide range of products has gained popularity.</h3>
 * An Individual project built in 5 days
   
 ** Deployed link - bewakoof-com-wine.vercel.app/
  # Features
 
-You will be able to create your account using login and signup option with firebase, used API calls for validating user credentials.
+You can create your account using the login and signup option with Firebase, using API calls for validating user credentials.
 
-You can choose a product which you want to buy and add to cart section.
+You can choose a product you want to buy and add it to the cart section.
   
-User can logout from the website.
+Users can log out from the website.
   
-User can't access cart page and wishlist page without login.
+The user can't access the cart page and wishlist page without login in.
   
-User can also select and remove items from cart section and make payment through card.
+Users can also select and remove items from the cart section and make payments through a card.
 
 All the data is stored in the MongoDB Database for users and items.
   
