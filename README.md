@@ -1,10 +1,10 @@
-
-
 <h1> fashion Point <h1>
+
+* Deployed link - bewakoof-com-wine.vercel.app/
 <h3>Fashion Point is a clone of a website called bewakoof.com, an Indian e-commerce website offering affordable and trendy clothing for men and women, known for its quirky designs and engaging social media presence. Its humorous approach to fashion and wide range of products has gained popularity.</h3>
 * An Individual project built in 5 days
   
-** Deployed link - bewakoof-com-wine.vercel.app/
+
  # Features
 
 You can create your account using the login and signup option with Firebase, using API calls for validating user credentials.
