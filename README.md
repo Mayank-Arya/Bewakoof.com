@@ -46,6 +46,4 @@ All the data is stored in the MongoDB Database for users and items.
   ## Feedback
 
 If you have any feedback, please reach out to us at ma8183468@gmail.com 
-  
-  
->>>>>>> a1618fae6dcf30d199ed3fba73e3dd8f7947ff00
+
