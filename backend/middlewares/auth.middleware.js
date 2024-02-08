@@ -1,4 +1,3 @@
-
 const jwt = require('jsonwebtoken')
 //This middleware will help us in authenticating the routes 
 //That after login, the user can access the routes and implement the actions
@@ -19,3 +18,18 @@ const auth = (req,res,next)=>{
 }
 
 module.exports = {auth}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -52,5 +52,38 @@ productRouter.patch("/patch/:id",async(req,res)=>{
 })
 
 
+
+productRouter.get("/sort", async (req, res) => {
+    const { name, category, sortBy } = req.query;
+    const filter = {};
+  
+    if (name) {
+      filter.name = name;
+    }
+  
+    if (category) {
+      filter.category = category;
+    }
+  
+    try {
+      let data;
+  
+      if (sortBy) {
+        // If sortBy is specified, use it for sorting
+        data = await productmodel.find(filter).sort(sortBy);
+      } else {
+        // If sortBy is not specified, fetch data without sorting
+        data = await productmodel.find(filter);
+      }
+  
+      res.send(data);
+    } catch (err) {
+      res.send(err.message);
+    }
+  });
+
+
+
+
 module.exports={productRouter}
 

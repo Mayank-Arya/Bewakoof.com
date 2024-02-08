@@ -14,3 +14,11 @@ const productSchema = mongoose.Schema({
 const productmodel = mongoose.model('product',productSchema)
 
 module.exports = {productmodel}
+
+
+
+
+
+
+
+
